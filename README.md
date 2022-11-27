@@ -9,7 +9,7 @@ Como também, foi utilizado o conceito do 'Repository Pattern' que permite um en
 
 ## Diagramas
 
-Abaixo, irei apresentar dois diagramas que utilizo para entender, ilustrar e definir pontos essenciais no desenvolvimento do programa.
+Abaixo, irei apresentar dois diagramas que utilizo para entender, ilustrar e definir pontos essenciais para o desenvolvimento do programa.
 
 ### Caso de uso:
 
