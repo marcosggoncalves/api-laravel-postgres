@@ -5,7 +5,7 @@
 API RESTful utilizando Laravel e Postgres.
 
 Aplicação apresenta uma organização bem simples, na arquitetura monolítica que inteliga todos os componentes em um único programa dentro de uma única plataforma.
-Como também, foi utilizado o conceito do 'Repository Pattern' que permite um encapsulamento da lógica de acesso a dados, impulsionando o uso da injeção de dependencia (DI) e proporcionando uma visão mais orientada a objetos das interações com a DAL. Na minha opinião, acho esse pattern é bem intessante, pois conseguimos abstrair o acesso direto com banco. Além disso, é um bom Pattern para entender e estudar definições importantes.
+Como também, foi utilizado o conceito do 'Repository Pattern' que permite um encapsulamento da lógica de acesso a dados, impulsionando o uso da injeção de dependencia (DI) e proporcionando uma visão mais orientada a objetos das interações com a DAL. Na minha opinião, esse pattern é bem intessante, pois conseguimos abstrair o acesso direto com banco. Além disso, é um bom Pattern para entender e estudar definições importantes.
 
 ## Diagramas
 
