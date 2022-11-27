@@ -1,0 +1,737 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Teste Back-end PHP - Drugovich(V1)",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Listar clientes",
+                "description": "Retornar todos os cadastros de clientes",
+                "operationId": "index_clientes",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Cadastrar novo cliente",
+                "operationId": "store_clientes",
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "cnpj",
+                                    "data_fundacao"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    },
+                                    "cnpj": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "81.466.424/0001-48"
+                                    },
+                                    "data_fundacao": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2022-11-26"
+                                    },
+                                    "grupo_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/clientes/{id}": {
+            "put": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Alterar cadastro do cliente",
+                "operationId": "update_clientes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "cnpj",
+                                    "data_fundacao"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    },
+                                    "cnpj": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "81.466.424/0001-48"
+                                    },
+                                    "data_fundacao": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2022-11-26"
+                                    },
+                                    "grupo_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Excluir cadastro de um cliente",
+                "operationId": "destroy_clientes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/gerentes": {
+            "get": {
+                "tags": [
+                    "Gerentes"
+                ],
+                "summary": "Listar gerentes",
+                "description": "Retornar todos os cadastros de gerentes",
+                "operationId": "listar_gerentes",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Gerentes"
+                ],
+                "summary": "Cadastrar Novo Gerente",
+                "operationId": "novo_gerente",
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "password",
+                                    "nivel"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "marcoslopesg7@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234"
+                                    },
+                                    "nivel": {
+                                        "type": "number",
+                                        "format": "text",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/gerentes/{id}": {
+            "put": {
+                "tags": [
+                    "Gerentes"
+                ],
+                "summary": "Alterar cadastro do gerente",
+                "operationId": "editar_gerente",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "password",
+                                    "nivel"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "marcoslopesg7@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234"
+                                    },
+                                    "nivel": {
+                                        "type": "number",
+                                        "format": "text",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Gerentes"
+                ],
+                "summary": "Excluir cadastro de um gerente",
+                "operationId": "excluir_gerente",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/gerentes/login": {
+            "post": {
+                "tags": [
+                    "Gerentes"
+                ],
+                "summary": "Efetuar login como gerente",
+                "operationId": "login_gerente",
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "marcoslopesg7@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                }
+            }
+        },
+        "/api/v1/grupos": {
+            "get": {
+                "tags": [
+                    "Grupos"
+                ],
+                "summary": "Listar grupos",
+                "description": "Retornar todos os grupos cadastrados",
+                "operationId": "listar_grupos",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Grupos"
+                ],
+                "summary": "Cadastrar novo grupo",
+                "operationId": "novo_grupo",
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/grupos/{id}": {
+            "get": {
+                "tags": [
+                    "Grupos"
+                ],
+                "summary": "Detalhar informação do grupo  e clientes vinculados",
+                "description": "Retornar informações do grupo e clientes vinculados",
+                "operationId": "get_grupo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Grupos"
+                ],
+                "summary": "Alterar cadastro do grupo",
+                "operationId": "editar_grupo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Campos para cadastros",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "nome",
+                                        "format": "text",
+                                        "example": "Marcos"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    },
+                    "417": {
+                        "description": "Entradas inválidas, campos obrigatórios! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Grupos"
+                ],
+                "summary": "Excluir cadastro do grupo",
+                "operationId": "excluir_grupo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tudo Certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário ou você não tem permissão! "
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearer": {
+                "type": "http",
+                "description": "Authorization token obtained from logging in.",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearerAuth"
+            }
+        }
+    ]
+}
