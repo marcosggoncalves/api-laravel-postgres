@@ -15,7 +15,7 @@ Abaixo, irei apresentar dois diagramas que utilizo para entender, ilustrar e def
 
 ![Diagrama de uso](https://github.com/marcosggoncalves/api-drugovich/blob/master/Diagramas/Diagrama%20de%20caso%20de%20uso(UseCase).png?raw=true)
  
-Em particularidade, crie os *CASOS* com base no requisitos. Mas, caso seja levado em consideração as demais funcionalidades, teramos um diagrama mais detalhado e com mais casos.
+Em particularidade, crie os *CASOS* com base nos requisitos. Mas, caso seja levado em consideração as demais funcionalidades, teramos um diagrama mais detalhado e com mais casos.
 
 ### Modelagem do Banco(Lógico):
 
