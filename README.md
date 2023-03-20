@@ -1,4 +1,4 @@
-# Teste Prático Back-end PHP - Drugovich(V1)
+# Teste Prático Back-end PHP
 
 ## Descrição
 
